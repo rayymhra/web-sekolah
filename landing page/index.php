@@ -10,51 +10,79 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dashboard Sekolah</a>
-            <div class="d-flex">
-                <button class="btn btn-outline-light me-2" type="button">Sign In</button>
-                <button class="btn btn-success me-2" type="button">Sign Up</button>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dashboard Sekolah</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </form>
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" height="30" class="d-inline-block align-text-top">
+                Dashboard Sekolah
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Program</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary me-2" type="button">Sign In</button>
+                    <button class="btn btn-primary" type="button">Sign Up</button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1>Selamat Datang di Dashboard Sekolah</h1>
+            <p class="lead">Platform digital untuk mendukung pembelajaran dan administrasi sekolah</p>
+            <a href="#fitur" class="btn btn-outline-light mt-3">Jelajahi Fitur</a>
+        </div>
+    </header>
+
+    <section id="fitur" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Fitur Unggulan</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="icon1.png" alt="Fitur 1" class="mb-3" height="100">
+                    <h5>Manajemen Data Siswa</h5>
+                    <p>Mempermudah pengelolaan data siswa dengan cepat dan aman.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="icon2.png" alt="Fitur 2" class="mb-3" height="100">
+                    <h5>E-Learning</h5>
+                    <p>Platform pembelajaran online dengan fitur lengkap.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="icon3.png" alt="Fitur 3" class="mb-3" height="100">
+                    <h5>Laporan Akademik</h5>
+                    <p>Penyusunan laporan hasil belajar siswa yang terintegrasi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Tentang Kami</h2>
+            <p class="text-center">Dashboard Sekolah adalah solusi digital untuk mempermudah pengelolaan administrasi sekolah, mendukung proses belajar-mengajar, dan meningkatkan efektivitas komunikasi antara guru, siswa, dan orang tua.</p>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2024 Dashboard Sekolah. Dikembangkan oleh Tim IT</p>
+    </footer>
 
 </body>
 
