@@ -1,0 +1,34 @@
+/* Landing Page */
+/* Umum - Mengatur Margin dan Padding */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+/* Memastikan setiap bagian memiliki ruang */
+header,
+section,
+footer {
+  padding-bottom: 20px;
+}
+
+/* Untuk memastikan konten tidak berdekatan */
+.py-5 {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+/* Footer lebih jauh dengan jarak aman */
+footer {
+  margin-top: 20px;
+}
+
+/* Responsivitas tambahan */
+@media (max-width: 768px) {
+  header {
+    padding-top: 60px;
+  }
+}

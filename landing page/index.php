@@ -7,9 +7,11 @@
     <title>Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/CSS/style.css">
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -22,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                        <a class="nav-link active" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profil</a>
@@ -42,31 +44,32 @@
         </div>
     </nav>
 
+    <!-- Header -->
     <header class="bg-primary text-white text-center py-5">
         <div class="container">
-            <h1>Selamat Datang di Dashboard Sekolah</h1>
-            <p class="lead">Platform digital untuk mendukung pembelajaran dan administrasi sekolah</p>
-            <a href="#fitur" class="btn btn-light mt-3">Jelajahi Fitur</a>
+            <h1 class="display-4">Selamat Datang di Dashboard Sekolah</h1>
+            <p class="lead mt-3">Platform digital untuk mendukung pembelajaran dan administrasi sekolah</p>
+            <a href="#fitur" class="btn btn-light mt-4">Jelajahi Fitur</a>
         </div>
     </header>
 
-    <!-- Bagian Fitur dengan Grid Responsif -->
+    <!-- Bagian Fitur -->
     <section id="fitur" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4">Fitur Unggulan</h2>
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6 text-center">
-                    <img src="icon1.png" alt="Fitur 1" class="mb-3" height="100">
+            <h2 class="text-center mb-5">Fitur Unggulan</h2>
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <img src="icon1.png" alt="Manajemen Data Siswa" class="mb-3" height="100">
                     <h5>Manajemen Data Siswa</h5>
                     <p>Mempermudah pengelolaan data siswa dengan cepat dan aman.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 text-center">
-                    <img src="icon2.png" alt="Fitur 2" class="mb-3" height="100">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <img src="icon2.png" alt="E-Learning" class="mb-3" height="100">
                     <h5>E-Learning</h5>
                     <p>Platform pembelajaran online dengan fitur lengkap.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 text-center">
-                    <img src="icon3.png" alt="Fitur 3" class="mb-3" height="100">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <img src="icon3.png" alt="Laporan Akademik" class="mb-3" height="100">
                     <h5>Laporan Akademik</h5>
                     <p>Penyusunan laporan hasil belajar siswa yang terintegrasi.</p>
                 </div>
@@ -75,20 +78,22 @@
     </section>
 
     <!-- Bagian Tentang Kami -->
-    <section class="py-5">
+    <section class="py-5 bg-white">
         <div class="container">
             <h2 class="text-center mb-4">Tentang Kami</h2>
-            <p class="text-center">Dashboard Sekolah adalah solusi digital untuk mempermudah pengelolaan administrasi sekolah, mendukung proses belajar-mengajar, dan meningkatkan efektivitas komunikasi antara guru, siswa, dan orang tua.</p>
+            <p class="text-center">Dashboard Sekolah adalah solusi digital untuk mempermudah pengelolaan administrasi sekolah, mendukung proses belajar-mengajar, dan meningkatkan komunikasi antara guru, siswa, dan orang tua.</p>
         </div>
     </section>
 
-    <!-- Bagian Footer -->
-    <footer class="bg-dark text-white text-center py-3">
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <p class="mb-0">&copy; 2024 Dashboard Sekolah. Dikembangkan oleh Tim IT</p>
         </div>
     </footer>
 
+    <!-- JavaScript -->
+     <script src="../assets/JS/main.js"></script>
 </body>
 
 </html>
