@@ -12,7 +12,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../assets/img/bm3.png" alt="Logo" height="30" class="logo d-inline-block align-text-top">
@@ -22,9 +22,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Beranda</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profil</a>
                     </li>
@@ -44,9 +41,9 @@
     </nav>
 
     <!-- Header -->
-    <header class="bg-primary text-white text-center py-5">
+    <header class=" text-white text-center py-5" style="background-color: #208780;">
         <div class="container">
-            <h1 class="display-4">Selamat Datang di Dashboard Sekolah</h1>
+            <h1 class="display-5" style="font-weight: bold;">Selamat Datang di Dashboard Sekolah</h1>
             <p class="lead mt-3">Platform digital untuk mendukung pembelajaran dan administrasi sekolah</p>
             <a href="#fitur" class="btn btn-light mt-4">Jelajahi Fitur</a>
         </div>
@@ -55,20 +52,20 @@
     <!-- Bagian Fitur -->
     <section id="fitur" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Fitur Unggulan</h2>
+            <h2 class="text-center mb-5" style="color: #133e59;">Fitur Unggulan</h2>
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 text-center">
-                    <img src="icon1.png" alt="Manajemen Data Siswa" class="mb-3" height="100">
+                    <img src="../assets/img/paper.png" alt="Manajemen Data Siswa" class="mb-3" height="50">
                     <h5>Manajemen Data Siswa</h5>
                     <p>Mempermudah pengelolaan data siswa dengan cepat dan aman.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
-                    <img src="icon2.png" alt="E-Learning" class="mb-3" height="100">
+                    <img src="../assets/img/globe.png" alt="E-Learning" class="mb-3" height="50">
                     <h5>E-Learning</h5>
                     <p>Platform pembelajaran online dengan fitur lengkap.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
-                    <img src="icon3.png" alt="Laporan Akademik" class="mb-3" height="100">
+                    <img src="../assets/img/report.png" alt="Laporan Akademik" class="mb-3" height="50">
                     <h5>Laporan Akademik</h5>
                     <p>Penyusunan laporan hasil belajar siswa yang terintegrasi.</p>
                 </div>
@@ -79,14 +76,14 @@
     <!-- Bagian Tentang Kami -->
     <section class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center mb-4">Tentang Kami</h2>
+            <h2 class="text-center mb-4" style="color: #133e59;">Tentang Kami</h2>
             <p class="text-center">Dashboard Sekolah adalah solusi digital untuk mempermudah pengelolaan administrasi sekolah, mendukung proses belajar-mengajar, dan meningkatkan komunikasi antara guru, siswa, dan orang tua.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
+    <footer class=" text-white text-center py-4">
+        <div class="container" style="display: block;">
             <p class="mb-0">&copy; 2024 Dashboard Sekolah. Dikembangkan oleh Tim IT</p>
         </div>
     </footer>
