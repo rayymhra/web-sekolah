@@ -16,21 +16,21 @@ Team Members
 
 Daftar anggota tim dan tanggung jawabnya:
 
-Rayya Mahira - Peran/Tugas (Contoh: Frontend Developer)
+Rayya Mahira - Fullstack Developer
 
-Joel Christo Kolibongso - Peran/Tugas (Contoh: Backend Developer)
+Joel Christo Kolibongso - Frontend Developer
 
-Muhammad Fauzan - Peran/Tugas
+Muhammad Fauzan - Frontend Developer
 
-Revantino Meysi - Peran/Tugas
+Revantino Meysi - Frontend Developer
 
-Naufal Ahmad Fadhil - Peran/Tugas
+Naufal Ahmad Fadhil - Backend Developer
 
-Samudra Cipta Bimantoro - Peran/Tugas
+Samudra Cipta Bimantoro - Unknown
 
-Joshua Noel Siregar - Peran/Tugas
+Joshua Noel Siregar - Unknown
 
-Ishaq Hafidz - Peran/Tugas
+Ishaq Hafidz - Unknown
 
 Technologies Used
 
@@ -44,7 +44,7 @@ Database: MySQL
 
 Alat Kolaborasi: Git
 
-Library: -
+Library: Bootstrap 5
 
 Installation Guide
 
