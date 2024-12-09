@@ -119,7 +119,7 @@
         <div class="container">
             <p>&copy; 2023 Dashboard Sekolah. All rights reserved.</p>
             <p><a href="#" class="text-white">Kebijakan Privasi</a> | <a href="#" class="text-white">Syarat dan Ketentuan</a></p>
-            <p><a href="#" style="text-decoration: none;" class="text-secondary">made by ❤️</a></p>
+            <p><a href="../bonus/index.php" style="text-decoration: none;" class="text-secondary">made by ❤️</a></p>
         </div>
     </footer>
 </body>
