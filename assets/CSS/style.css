@@ -2,6 +2,7 @@
 /* Umum - Mengatur Margin dan Padding */
 html,
 body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,6 +31,88 @@ footer {
 .logo {
   height: 50px;
 }
+
+        .navbar {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand img {
+            height: 30px;
+        }
+
+        header {
+            background-color: #208780;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header img {
+            display: block;
+            margin: 0 auto;
+            max-width: 200px;
+            height: auto;
+        }
+
+        header h1 {
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .feature-icon {
+            height: 60px;
+        }
+
+        .feature-card {
+            transition: transform 0.3s;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #133e59;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .bg-light {
+            background-color: #f0f0f0 !important;
+        }
+
+        .text-dark {
+            color: #333 !important;
+        }
+
+        .text-white {
+            color: #ffffff !important;
+        }
+
+        .text-primary {
+            color: #007bff !important;
+        }
+
+        /* New styles for spacing */
+        section {
+            padding: 60px 0;
+            /* Add padding to each section */
+        }
+
+        h2 {
+            margin-bottom: 40px;
+            /* Add margin to headings */
+        }
 
 /* Responsivitas tambahan */
 @media (max-width: 768px) {
