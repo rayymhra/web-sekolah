@@ -87,11 +87,13 @@
 
         /* New styles for spacing */
         section {
-            padding: 60px 0; /* Add padding to each section */
+            padding: 60px 0;
+            /* Add padding to each section */
         }
 
         h2 {
-            margin-bottom: 40px; /* Add margin to headings */
+            margin-bottom: 40px;
+            /* Add margin to headings */
         }
     </style>
 </head>
@@ -121,7 +123,7 @@
                         <a class="nav-link text-dark" href="#">Kontak</a>
                     </li>
                 </ul>
-                <div class ="d-flex mt-2 mt-lg-0">
+                <div class="d-flex mt-2 mt-lg-0">
                     <button class="btn btn-outline-primary me-2" type="button">Sign In</button>
                     <button class="btn btn-primary" type="button">Sign Up</button>
                 </div>
@@ -168,17 +170,20 @@
         <div class="container">
             <h2 class="text-center mb-5 text-light">Program Keahlian</h2>
             <div class="row gy-4">
-                <div class="col-lg-4 col-md-6 text-center">
-                    <h5 class="text-light">Rekayasa Perangkat Lunak (RPL)</h5>
-                    <p class="text-light">Berfokus pada pengembangan perangkat lunak, mencakup penguasaan pemrograman, desain sistem, dan aplikasi.</p>
+                <div class="col-lg-4 col-md-6 text-center feature-card">
+                    <img src="../assets/img/rpl-icon.png" alt="Rekayasa Perangkat Lunak" class="feature-icon mb-3">
+                    <h5 class="text-dark">Rekayasa Perangkat Lunak (RPL)</h5>
+                    <p class="text-dark">Berfokus pada pengembangan perangkat lunak, mencakup penguasaan pemrograman, desain sistem, dan aplikasi.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <h5 class="text-light">Teknik Komputer dan Jaringan (TKJ)</h5>
-                    <p class="text-light">Mengajarkan instalasi jaringan, perawatan perangkat keras, dan konfigurasi perangkat jaringan.</p>
+                <div class="col-lg-4 col-md-6 text-center feature-card">
+                    <img src="../assets/img/tkj-icon.png" alt="Teknik Komputer dan Jaringan" class="feature-icon mb-3">
+                    <h5 class="text-dark">Teknik Komputer dan Jaringan (TKJ)</h5>
+                    <p class="text-dark">Mengajarkan instalasi jaringan, perawatan perangkat keras, dan konfigurasi perangkat jaringan.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <h5 class="text-light">Desain Komunikasi Visual (DKV)</h5>
-                    <p class="text-light">Menekankan pada kreativitas desain grafis, branding, dan multimedia interaktif.</p>
+                <div class="col-lg-4 col-md-6 text-center feature-card">
+                    <img src="../assets/img/dkv-icon.png" alt="Desain Komunikasi Visual" class="feature-icon mb-3">
+                    <h5 class="text-dark">Desain Komunikasi Visual (DKV)</h5>
+                    <p class="text-dark">Menekankan pada kreativitas desain grafis, branding, dan multimedia interaktif.</p>
                 </div>
             </div>
         </div>
