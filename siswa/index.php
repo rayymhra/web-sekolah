@@ -107,7 +107,7 @@
                         <a class="nav-link" href="#">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Program</a>
+                        <a class="nav-link" href="../landing page/index.php#program">Program</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kontak</a>
