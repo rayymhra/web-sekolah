@@ -128,11 +128,13 @@ h2 {
 ::-webkit-scrollbar-thumb {
     background: #aaaaaa; /* Warna tongkat scrollbar */
     border-radius: 4px;
+    transition: all .5s ease ;
 }
 
 /* Untuk menghindari scrollbar terlalu mencolok dan tetap minimalis */
 ::-webkit-scrollbar-thumb:hover {
     background: #808080;
+    transition: all .5s ease ;
 }
 
 
