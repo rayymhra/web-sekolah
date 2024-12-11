@@ -28,7 +28,7 @@ Naufal Ahmad Fadhil - Backend Developer
 
 Samudra Cipta Bimantoro - Frontend Developer
 
-Joshua Noel Siregar - Unknown
+Joshua Noel Siregar - Frontend Developer
 
 Ishaq Hafidz - Unknown
 
