@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Ahom&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* BUTTON */
+.btn-utama {
+    border: 1px solid #133e59;
+    padding: 6px 23px;
+    border-radius: 16px;
+    background-color: #208780;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.3s;
+
+}
+
+.btn-utama:hover {
+    background-color: #133e59;
+    transition: all 0.3s;
+}
+
+
 /* Landing Page */
 /* Umum - Mengatur Margin dan Padding */
 html,
@@ -148,3 +168,37 @@ h2 {
     padding-top: 60px;
   }
 }
+
+/* LOGIN */
+.login-container {
+    margin-top: 4rem;
+}
+
+.login {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  
+  .login img {
+    width: 130px;
+    margin-bottom: 3rem;
+  }
+  
+  .login h4 {
+    font-weight: 600;
+  }
+  
+  .contact {
+    background-color: #208780;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #ffffff;
+    box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);
+
+  }
+  .forget {
+    font-size: 15px;
+    color: #208780;
+  }
