@@ -26,9 +26,9 @@ Revantino Meysi - Frontend Developer
 
 Naufal Ahmad Fadhil - Backend Developer
 
-Samudra Cipta Bimantoro - Unknown
+Samudra Cipta Bimantoro - Frontend Developer
 
-Joshua Noel Siregar - Unknown
+Joshua Noel Siregar - Frontend Developer
 
 Ishaq Hafidz - Unknown
 

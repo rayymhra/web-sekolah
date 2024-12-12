@@ -97,8 +97,8 @@
                 <li>Buka terminal atau command prompt di komputer Anda.</li>
                 <li>Masukkan perintah berikut untuk meng-clone repository:</li><br>
                 <pre>
-                <code>git clone https://github.com/rayymhra/web-sekolah</code>
-                <code>cd web-sekolah</code>
+                <code>1. git clone https://github.com/rayymhra/web-sekolah</code>
+                <code>2. cd web-sekolah</code>
                 </pre>
                 <li>Anda sekarang dapat mulai bekerja dengan kode sumber yang telah di-clone.</li>
             </ol>
