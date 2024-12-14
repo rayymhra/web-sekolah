@@ -1,3 +1,7 @@
+<?php 
+// include '../koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,7 @@
                 </ul>
                 <div class="d-flex mt-2 mt-lg-0">
                     <a href="../login.php" class="btn btn-outline-success me-2">Log In</a>
-                    <button class="btn btn-primary" type="button">Sign Up</button>
+                    <a href="#" class="btn btn-success">Sign Up</a>
                 </div>
             </div>
         </div>
