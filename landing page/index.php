@@ -37,7 +37,7 @@
                     </li>
                 </ul>
                 <div class="d-flex mt-2 mt-lg-0">
-                    <button class="btn btn-outline-primary me-2" type="button">Sign In</button>
+                    <a href="../login.php" class="btn btn-outline-success me-2">Log In</a>
                     <button class="btn btn-primary" type="button">Sign Up</button>
                 </div>
             </div>
