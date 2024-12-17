@@ -45,10 +45,12 @@ Sebelum meng-clone dan menjalankan project ini, pastikan Anda memiliki:
 5. Konfigurasi file `koneksi.php` untuk koneksi database:
    ```php
    <?php
-   define('DB_HOST', 'localhost');
-   define('DB_USER', 'root');
-   define('DB_PASS', '// isi jika menggunakan password');
-   define('DB_NAME', 'sch_dashboardsekolah');
+   $conn = mysqli_connect("localhost", "root", "your_password", "sch_dashboardsekolah");
+
+   if($conn->connect_error){
+      die("Tidak dapat terhubung:" . $conn->connect_error);
+   }
+   
    ?>
    ```
 6. Jalankan XAMPP atau Laragon (Apache dan MySQL).
