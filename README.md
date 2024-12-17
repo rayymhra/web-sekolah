@@ -1,6 +1,6 @@
 # Dashboard Sekolah - Pendidikan
 
-Dashboard Sekolah adalah sebuah proyek website pendidikan
+Dashboard Sekolah adalah sebuah platform yang berkomitmen untuk meningkatkan kualitas pendidikan melalui teknologi. Dengan berbagai fitur yang kami tawarkan, kami berharap dapat membantu sekolah dalam mengelola administrasi dan pembelajaran dengan lebih baik.
 
 ## Anggota Kolaborasi
 - **Rayya Mahira:** [Fullstack Developer]
