@@ -59,7 +59,7 @@ Sebelum meng-clone dan menjalankan project ini, pastikan Anda memiliki:
 
 ## Struktur Direktori
 ```
-project-root/
+web-sekolah/
 ├── admin/                      # halaman admin
 ├── assets/                     # File CSS, JS, dan gambar
 ├── backend-only/               # file backend
@@ -68,7 +68,7 @@ project-root/
 ├── landing page/               # Halaman utama
 ├── siswa/                      # Halaman siswa
 ├── koneksi.php                 # Konfigurasi database
-└── README.md                   # Dokumentasi project
+├── README.md                   # Dokumentasi project
 └── sch_dashboardsekolah.sql    # Database website
 ```
 
