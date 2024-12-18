@@ -29,6 +29,7 @@ Sebelum meng-clone dan menjalankan project ini, pastikan Anda memiliki:
 1. **XAMPP atau Laragon:** Pastikan sudah terinstall dan menjalankan Apache serta MySQL.
 2. **Git:** Untuk meng-clone repository.
 3. **Browser:** Untuk mengakses website di localhost.
+3. **MySQL v.8.0.30:** Untuk menggunakan collation utf8mb4_0900_ai_ci.
 
 ## Cara Clone dan Menjalankan Project
 1. Clone repository ini menggunakan Git:
