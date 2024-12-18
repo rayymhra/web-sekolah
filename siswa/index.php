@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Siswa</title>
+    <link rel="shortcut icon" href="../assets/img/bm3-header.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../assets/CSS/style.css">
@@ -96,7 +97,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm stikcy-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="../assets/img/bm3.png" alt="Logo" height="30" class="logo d-inline-block align-text-top">
+                <img src="../assets/img/bm3-logo.png" alt="Logo" height="30" class="logo d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -114,8 +115,8 @@
                     </li>
                 </ul>
                 <div class="d-flex mt-2 mt-lg-0">
-                    <button class="btn btn-outline-primary me-2" type="button">Sign In</button>
-                    <button class="btn btn-primary" type="button">Sign Up</button>
+                    <button class="btn btn-outline-success me-2" type="button">Sign In</button>
+                    <button class="btn btn-success" type="button">Sign Up</button>
                 </div>
             </div>
         </div>
