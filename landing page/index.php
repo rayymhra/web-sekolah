@@ -133,7 +133,7 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-5" style="background-color: #f9f9f9 ;">
+    <section id="about" class="py-5 pt-5" style="background-color: #f9f9f9 ;">
         <div class="container">
             <h2 class="text-center mb-5" style="color: #133e59;">Tentang Kami</h2>
             <p class="text-center text-dark">
@@ -149,7 +149,7 @@
         <div class="container">
             <p>&copy; 2023 Dashboard Sekolah. All rights reserved.</p>
             <p><a href="#" class="text-white">Kebijakan Privasi</a> | <a href="#" class="text-white">Syarat dan Ketentuan</a></p>
-            <p><a href="../bonus/index.php" style="text-decoration: none;" class="text-secondary">made by ❤️</a></p>
+            <p><a href="../bonus/index.php" style="text-decoration: none;" class="text-white">made by XI RPL 1</a></p>
         </div>
     </footer>
 </body>
