@@ -12,9 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validasi data
     if (empty($username) || empty($password) || empty($role) || empty($name) || empty($email)) {
-        $error = "Semua kolom wajib diisi.";
+        $error_form = "Sepertinya ada kolom yang kosong?";
+        $form_message = "Pastikan semua kolom terisi!.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Email tidak valid.";
+        $error_mail = "Email tidak valid.";
+        $mail_message = "Pastikan format Email sudah benar!";
     } else {
         // Hash password
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -28,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (move_uploaded_file($photo['tmp_name'], $target_file)) {
                 $photo_path = $target_file;
             } else {
-                $error = "Gagal mengunggah foto.";
+                $error_img = "Gagal mengunggah foto.";
+                $error_img = "Terjadi kesalahan saat mengunggah foto.";
             }
         }
 
@@ -38,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("ssssss", $username, $hashed_password, $role, $name, $email, $photo_path);
 
             if ($stmt->execute()) {
-                $success = "Pendaftaran berhasil.";
+                $role_redirect = 'login.php'; // Redirect to login page
+                $role_message = 'Redirecting to login page...';
             } else {
                 $error = "Error: " . $stmt->error;
             }
@@ -62,6 +66,8 @@ $conn->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         .register-container {
             margin-top: 5%;
@@ -158,8 +164,50 @@ $conn->close();
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap - SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <?php if (isset($role_redirect)) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Registrasi Berhasil!',
+                text: '<?php echo $role_message; ?>',
+                confirmButtonColor: '#208780'
+            }).then(function() {
+                window.location.href = '<?php echo $role_redirect; ?>'; //redirect sesuai role
+            });
+        </script>
+    <?php elseif (isset($error_img)) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '<?php echo $error_message; ?>',
+                confirmButtonColor: '#208780'
+            });
+        </script>
+    <?php elseif (isset($error_form)) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '<?php echo $form_message; ?>',
+                confirmButtonColor: '#208780'
+            });
+        </script>
+    <?php elseif (isset($error_mail)) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '<?php echo $mail_message; ?>',
+                confirmButtonColor: '#208780'
+            });
+        </script>
+    <?php endif; ?>
+
 </body>
 
 </html>
