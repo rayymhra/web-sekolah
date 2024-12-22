@@ -77,17 +77,17 @@ $conn->close();
         }
 
         .register .btn-utama {
-            background-color: #007bff;
+            background-color: #208780;
             color: white;
             border: none;
         }
 
         .register .btn-utama:hover {
-            background-color: #0056b3;
+            background-color: #196762;
         }
 
         .info {
-            background-color: #007bff;
+            background-color: #208780;
             color: white;
             border-radius: 0 0.375rem 0.375rem 0;
         }
