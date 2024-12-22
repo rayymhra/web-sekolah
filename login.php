@@ -109,7 +109,7 @@ if (isset($_POST['submit'])) {
                                 </label>
                             </div>
                             <div class="mt-2">
-                                <a href="pelanggan/kelola_pelanggan.php" class="forget">Forgot Password</a>    `
+                                <a href="pelanggan/kelola_pelanggan.php" class="forget">Forgot Password</a> `
                             </div>
                         </div>
                     </div>
@@ -130,8 +130,8 @@ if (isset($_POST['submit'])) {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="assets/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/JS/main.js"></script>
 
     <?php if (isset($role_redirect)) : ?>
         <script>
@@ -165,6 +165,25 @@ if (isset($_POST['submit'])) {
             });
         <?php endif; ?>
     </script>
+
+    <!-- Hide and Show Password -->
+    <script>
+        // Ambil elemen input password dan checkbox
+        const passwordInput = document.getElementById('password');
+        const showPasswordCheckbox = document.getElementById('show-password');
+
+        // Tambahkan event listener pada checkbox
+        showPasswordCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                // Ubah tipe input menjadi teks untuk menampilkan password
+                passwordInput.type = 'text';
+            } else {
+                // Ubah tipe input kembali menjadi password untuk menyembunyikan password
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
+
 </body>
 
 </html>
