@@ -1,75 +1,81 @@
 <?php
 include "../koneksi.php";
-session_start();
+session_start(); // Pastikan session dimulai
 
-if (!isset($_SESSION['user_id'])) {
-    // echo json_encode(['success' => false, 'message' => 'User not logged in']);
-    echo json_encode(['success' => false]);
+// Cek apakah user sudah login
+if (!isset($_SESSION['id'])) {
+    echo json_encode(["success" => false, "message" => "User not logged in"]);
+    exit; // Berhenti agar tidak lanjutkan eksekusi halaman
+}
+
+$user_id = $_SESSION['id'];  // Menggunakan $_SESSION['id'] yang sudah didefinisikan pada login
+$username = $_SESSION['username'];
+$role = $_SESSION['role'];
+$photo = $_SESSION['photo'];
+$response = ['success' => false];
+
+// Menampilkan foto profil jika ada
+if ($photo) {
+    $photo_path = $photo; // Foto profil yang disimpan di folder uploads
+} else {
+    $photo_path = 'uploads/default-profile.png'; // Foto default jika tidak ada
+}
+
+// Cek apakah ada data dashboard untuk user ini
+$query = "SELECT title, cover_path, photo_path FROM dashboard WHERE user_id = '$user_id'";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    echo json_encode(["success" => false, "message" => "Failed to fetch dashboard data: " . mysqli_error($conn)]);
     exit;
 }
 
-$user_id = $_SESSION['user_id'];
-$response = ['success' => false];
-
-// Handle file uploads
-if (isset($_FILES['cover']) || isset($_FILES['icon'])) {
-    $upload_dir = "uploads/";
-    if (!file_exists($upload_dir)) {
-        mkdir($upload_dir, 0777, true);
-    }
-
-    // Save cover image
-    if (isset($_FILES['cover'])) {
-        $cover_name = time() . '_cover_' . basename($_FILES['cover']['name']);
-        $cover_path = $upload_dir . $cover_name;
-
-        if (move_uploaded_file($_FILES['cover']['tmp_name'], $cover_path)) {
-            $cover_db_path = "uploads/" . $cover_name;
-            mysqli_query($conn, "UPDATE dashboard SET cover_path = '$cover_db_path' WHERE user_id = '$user_id'");
-            $response['cover_path'] = $cover_db_path;
-        }
-    }
-
-    // Save icon image
-    if (isset($_FILES['icon'])) {
-        $icon_name = time() . '_icon_' . basename($_FILES['icon']['name']);
-        $icon_path = $upload_dir . $icon_name;
-
-        if (move_uploaded_file($_FILES['icon']['tmp_name'], $icon_path)) {
-            $icon_db_path = "uploads/" . $icon_name;
-            mysqli_query($conn, "UPDATE dashboard SET icon_path = '$icon_db_path' WHERE user_id = '$user_id'");
-            $response['icon_path'] = $icon_db_path;
-        }
-    }
-
-    $response['success'] = true;
-}
-
-// Handle title update
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $result = mysqli_query($conn, "UPDATE dashboard SET title = '$title' WHERE user_id = '$user_id'");
-    $response['success'] = $result ? true : false;
-}
-
-echo json_encode($response);
-
-
-$default_cover = 'assets/default-cover.jpg';
-$default_icon = 'assets/default-icon.png';
-
-// Fetch dashboard data
-$query = "SELECT title, cover_path, icon_path FROM dashboard WHERE user_id = '$user_id'";
-$result = mysqli_query($conn, $query);
 $dashboard = mysqli_fetch_assoc($result);
 
-$title = $dashboard['title'] ?? 'Student Planner';
-$cover_path = $dashboard['cover_path'] ?? $default_cover;
-$icon_path = $dashboard['icon_path'] ?? $default_icon;
+// Jika data dashboard tidak ditemukan, buatkan data default
+if (!$dashboard) {
+    // Membuat data dashboard baru jika tidak ada
+    $default_cover = 'assets/default-cover.jpg';
+    $default_icon = 'assets/default-icon.png';
+    $default_title = 'Student Planner';
 
+    // Insert data dashboard default
+    $insert_query = "INSERT INTO dashboard (user_id, title, cover_path, icon_path) 
+                     VALUES ('$user_id', '$default_title', '$default_cover', '$default_icon')";
+
+    $insert_result = mysqli_query($conn, $insert_query);
+
+    if (!$insert_result) {
+        echo json_encode(["success" => false, "message" => "Failed to create default dashboard data"]);
+        exit;
+    }
+
+    // Ambil data dashboard yang baru saja dimasukkan
+    $dashboard = [
+        'title' => $default_title,
+        'cover_path' => $default_cover,
+        'icon_path' => $default_icon
+    ];
+}
+
+// Tentukan default value jika tidak ada dalam database
+$title = $dashboard['title'] ?? 'Student Planner';
+$cover_path = $dashboard['cover_path'] ?? 'assets/default-cover.jpg';
+$icon_path = $dashboard['icon_path'] ?? 'assets/default-icon.png';
+
+// Mengirimkan respon
+$response['success'] = true;
+$response['title'] = $title;
+$response['cover_path'] = $cover_path;
+$response['icon_path'] = $icon_path;
+
+// echo json_encode($response);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,42 +140,43 @@ $icon_path = $dashboard['icon_path'] ?? $default_icon;
         }
 
         .dashboard-content {
-        background-color: #f4f4f9;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-    }
+            background-color: #f4f4f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
-    .welcome-heading {
-        font-size: 2rem;
-        color: #2a2a2a;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
+        .welcome-heading {
+            font-size: 2rem;
+            color: #2a2a2a;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
 
-    .intro-text {
-        font-size: 1.2rem;
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-    }
+        .intro-text {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
 
-    .cta {
-        background-color: #fff;
-        padding: 1.2rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        border-left: 4px solid #AB967D; /* Accent color for visual interest */
-    }
+        .cta {
+            background-color: #fff;
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #AB967D;
+            /* Accent color for visual interest */
+        }
 
-    .cta p {
-        font-size: 1rem;
-        color: #666;
-        line-height: 1.6;
-    }
+        .cta p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
 
-    .btn-add-new {
+        .btn-add-new {
             display: inline-block;
             padding: 0.8rem 1.2rem;
             font-size: 1rem;
@@ -212,8 +219,9 @@ $icon_path = $dashboard['icon_path'] ?? $default_icon;
         }
     </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm stikcy-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm stikcy-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../assets/img/bm3-logo.png" alt="Logo" height="30" class="logo d-inline-block align-text-top">
@@ -268,7 +276,7 @@ $icon_path = $dashboard['icon_path'] ?? $default_icon;
             </div>
         </div>
 
-        <a href="logout.php" class="btn-add-new">Logout</a>
+        <a href="../logout.php" class="btn-add-new">Logout</a>
     </div>
 
     <script>
@@ -323,4 +331,5 @@ $icon_path = $dashboard['icon_path'] ?? $default_icon;
         }
     </script>
 </body>
+
 </html>
