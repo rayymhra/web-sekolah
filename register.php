@@ -78,8 +78,10 @@ $conn->close();
 
         .register .btn-utama {
             background-color: #208780;
+            padding: 5px 15px;
             color: white;
             border: none;
+            border-radius: 10px;
         }
 
         .register .btn-utama:hover {
