@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $adminQuery = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+    $adminQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
     $adminData = mysqli_fetch_assoc($adminQuery);
 
     if ($adminQuery->num_rows > 0) {
@@ -17,20 +17,20 @@ if (isset($_POST['submit'])) {
             $_SESSION['role'] = $adminData['role'];
 
             // Redirect based on role
-            if ($adminData['role'] == 'Admin') {
-                $role_redirect = 'admin/dashboard.php';
-                $role_message = 'Redirecting to owner dashboard...';
-            } elseif ($adminData['role'] == 'Pelanggan') {
-                $role_redirect = 'pelanggan/liat_barang.php';
-                $role_message = 'Redirecting to shift kasir...';
-            } elseif ($adminData['role'] == 'Pemasok') {
-                $role_redirect = 'admin/pemasok/dashboard.php';
-                $role_message = 'Redirecting to pemasok dashboard...';
+            if ($adminData['role'] == 'admin') {
+                $role_redirect = '/admin/index.php';
+                $role_message = 'Redirecting to admin dashboard...';
+            } elseif ($adminData['role'] == 'teacher') {
+                $role_redirect = '/guru/index.php';
+                $role_message = 'Redirecting to teacher pages...';
+            } elseif ($adminData['role'] == 'student') {
+                $role_redirect = '/siswa/index.php';
+                $role_message = 'Redirecting to student pages...';
             }
-             elseif ($adminData['role'] == 'Manajer') {
-                $role_redirect = 'manajer/dashboard.php';
-                $role_message = 'Redirecting to manajer dashboard...';
-            }
+            //  elseif ($adminData['role'] == 'Manajer') {
+            //     $role_redirect = 'manajer/dashboard.php';
+            //     $role_message = 'Redirecting to manajer dashboard...';
+            // }
         } else {
             $error_message = 'Password salah! Coba lagi.';
         }
