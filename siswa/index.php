@@ -107,8 +107,8 @@ $response['icon_path'] = $icon_path;
             bottom: 10px;
             right: 10px;
             padding: 5px 10px;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
+            /* background: rgba(0, 0, 0, 0.5);  */
+            /* color: #fff; */
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -181,9 +181,9 @@ $response['icon_path'] = $icon_path;
             padding: 0.8rem 1.2rem;
             font-size: 1rem;
             font-weight: 500;
-            color: #A1896E;
+            /* color: #A1896E; */
             /* Use your color palette for text */
-            background-color: #E7E1DA;
+            /* background-color: #E7E1DA; */
             /* Subtle off-white background */
             border: 1px solid #D3C8BB;
             /* Light border */
@@ -197,11 +197,11 @@ $response['icon_path'] = $icon_path;
         }
 
         .btn-add-new:hover {
-            color: #fff;
+            /* color: #fff; */
             /* White text on hover */
-            background-color: #A1896E;
+            /* background-color: #A1896E; */
             /* Darker background on hover */
-            border-color: #A1896E;
+            /* border-color: #A1896E; */
             /* Border color matches the background */
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             /* Add subtle shadow */
@@ -241,18 +241,30 @@ $response['icon_path'] = $icon_path;
                         <a class="nav-link" href="#">Kontak</a>
                     </li>
                 </ul>
-                <div class="d-flex mt-2 mt-lg-0">
-                    <button class="btn btn-outline-success me-2" type="button">Sign In</button>
-                    <button class="btn btn-success" type="button">Sign Up</button>
-                </div>
+                <?php if (isset($_SESSION['id'])): ?>
+                    <div class="d-flex ms-auto">
+                        <!-- Display user profile photo and name -->
+                        <div class="navbar-user">
+                            <img src="<?php echo $icon_path; ?>" alt="Foto Profil" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                            <span class="ms-2"><?php echo htmlspecialchars($username); ?></span>
+                        </div>
+                        <a href="../logout.php" class="btn btn-warning ms-3">Logout</a>
+                    </div>
+                <?php else: ?>
+                    <div class="d-flex mt-2 mt-lg-0">
+                        <button class="btn btn-outline-success me-2" type="button">Sign In</button>
+                        <button class="btn btn-success" type="button">Sign Up</button>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
+
     <div class="content" id="content">
         <!-- Cover Section -->
         <div class="cover-container" id="cover" style="background-image: url('<?php echo $cover_path; ?>');">
             <input type="file" id="cover-input" accept="image/*" onchange="updateCover()">
-            <button class="change-cover-btn" onclick="document.getElementById('cover-input').click();">Change Cover</button>
+            <button class="change-cover-btn btn btn-success" onclick="document.getElementById('cover-input').click();">Change Cover</button>
 
         </div>
 
@@ -275,8 +287,6 @@ $response['icon_path'] = $icon_path;
                 <p>Get started by customizing your planner to fit your unique schedule and goals. Stay on top of your responsibilities with ease!</p>
             </div>
         </div>
-
-        <a href="../logout.php" class="btn-add-new btn btn-outline-warning">Logout</a>
     </div>
 
     <script>
