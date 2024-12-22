@@ -16,13 +16,13 @@ $response = ['success' => false];
 
 // Menampilkan foto profil jika ada
 if ($photo) {
-    $photo_path = $photo; // Foto profil yang disimpan di folder uploads
+    $icon_path = $photo; // Foto profil yang disimpan di folder uploads
 } else {
-    $photo_path = 'uploads/default-profile.png'; // Foto default jika tidak ada
+    $icon_path = 'uploads/default-profile.png'; // Foto default jika tidak ada
 }
 
-// Cek apakah ada data dashboard untuk user ini
-$query = "SELECT title, cover_path, photo_path FROM dashboard WHERE user_id = '$user_id'";
+// Relasi untuk mengambil foto profil dari tabel 'users'
+$query = ("SELECT dashboard.title, dashboard.cover_path, dashboard.icon_path, users.photo FROM dashboard JOIN users ON dashboard.user_id = users.id WHERE dashboard.user_id = '$user_id'");
 $result = mysqli_query($conn, $query);
 
 if (!$result) {
@@ -276,7 +276,7 @@ $response['icon_path'] = $icon_path;
             </div>
         </div>
 
-        <a href="../logout.php" class="btn-add-new">Logout</a>
+        <a href="../logout.php" class="btn-add-new btn btn-outline-warning">Logout</a>
     </div>
 
     <script>
