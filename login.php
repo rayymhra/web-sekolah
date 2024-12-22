@@ -22,13 +22,13 @@ if (isset($_POST['submit'])) {
                 // Redirect berdasarkan role
                 if ($userData['role'] == 'admin') {
                     $role_redirect = '../web-sekolah/admin/index.php'; // Halaman admin
-                    $role_message = 'Redirecting to admin dashboard...';
+                    $role_message = 'Hi ' . $_SESSION['username'] . ', Redirecting to admin dashboard...';
                 } elseif ($userData['role'] == 'teacher') {
                     $role_redirect = '../web-sekolah/guru/index.php'; // Halaman guru
-                    $role_message = 'Redirecting to teacher pages...';
+                    $role_message = 'Hi ' . $_SESSION['username'] . ', Redirecting to guru dashboard...';
                 } elseif ($userData['role'] == 'student') {
                     $role_redirect = '../web-sekolah/siswa/index.php'; // Halaman siswa
-                    $role_message = 'Redirecting to student pages...';
+                    $role_message = 'Hi ' . $_SESSION['username'] . ', Redirecting to siswa dashboard...';
                 } else {
                     $error_message = 'Role tidak dikenali!';
                 }
@@ -55,7 +55,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/CSS/landing_page.css">
     <!-- sweetalert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
