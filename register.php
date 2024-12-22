@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error_mail = "Email tidak valid.";
         $mail_message = "Pastikan format Email sudah benar!";
     } else {
-        // Hash password
+        // Jika tidak ada error, lanjutkan proses registrasi
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         // Upload file
@@ -37,12 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($error)) {
             // Masukkan data ke database
-            $stmt = $conn->prepare("INSERT INTO users (username, password, role, name, email, photo) VALUES (?, ?, ?, ?, ?, ?)");
+            $sql = "INSERT INTO users (username, password, role, name, email, photo) VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
             $stmt->bind_param("ssssss", $username, $hashed_password, $role, $name, $email, $photo_path);
 
             if ($stmt->execute()) {
-                $role_redirect = 'login.php'; // Redirect to login page
-                $role_message = 'Redirecting to login page...';
+                $direction = 'login.php'; // Redirect to login page
+                $message = 'Redirecting to login page...';
             } else {
                 $error = "Error: " . $stmt->error;
             }
@@ -168,22 +169,22 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <?php if (isset($role_redirect)) : ?>
+    <?php if (isset($direction)) : ?>
         <script>
             Swal.fire({
                 icon: 'success',
                 title: 'Registrasi Berhasil!',
-                text: '<?php echo $role_message; ?>',
+                text: '<?php echo $message; ?>',
                 confirmButtonColor: '#208780'
             }).then(function() {
-                window.location.href = '<?php echo $role_redirect; ?>'; //redirect sesuai role
+                window.location.href = '<?php echo $direction; ?>'; //redirect sesuai role
             });
         </script>
     <?php elseif (isset($error_img)) : ?>
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
+                title: 'Foto gagal di unggah',
                 text: '<?php echo $error_message; ?>',
                 confirmButtonColor: '#208780'
             });
@@ -191,8 +192,8 @@ $conn->close();
     <?php elseif (isset($error_form)) : ?>
         <script>
             Swal.fire({
-                icon: 'error',
-                title: 'Error',
+                icon: 'question',
+                title: 'Sepertinya ada form yang kosong',
                 text: '<?php echo $form_message; ?>',
                 confirmButtonColor: '#208780'
             });
@@ -201,7 +202,7 @@ $conn->close();
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
+                title: 'Sepertinya Emailnya salah',
                 text: '<?php echo $mail_message; ?>',
                 confirmButtonColor: '#208780'
             });
