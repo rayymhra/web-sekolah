@@ -6,48 +6,31 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $adminQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
-    $adminData = mysqli_fetch_assoc($adminQuery);
+    // Cek di tabel pengguna (users) untuk admin, guru, atau siswa
+    $userQuery = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
+    if ($userQuery) {
+        $userData = mysqli_fetch_assoc($userQuery);
 
-    if ($adminQuery->num_rows > 0) {
-        // User login
-        if ($adminData && $password == $adminData['password']) {
-            $_SESSION['id'] = $adminData['id'];
-            $_SESSION['username'] = $adminData['username'];
-            $_SESSION['role'] = $adminData['role'];
+        if ($userQuery->num_rows > 0) {
+            // Jika ada pengguna dengan username yang ditemukan
+            if (password_verify($password, $userData['password'])) { // Verifikasi password menggunakan password_verify
+                $_SESSION['id'] = $userData['id'];
+                $_SESSION['username'] = $userData['username'];
+                $_SESSION['role'] = $userData['role']; // Menyimpan role pengguna
 
-            // Redirect based on role
-            if ($adminData['role'] == 'admin') {
-                $role_redirect = '/admin/index.php';
-                $role_message = 'Redirecting to admin dashboard...';
-            } elseif ($adminData['role'] == 'teacher') {
-                $role_redirect = '/guru/index.php';
-                $role_message = 'Redirecting to teacher pages...';
-            } elseif ($adminData['role'] == 'student') {
-                $role_redirect = '/siswa/index.php';
-                $role_message = 'Redirecting to student pages...';
-            }
-            //  elseif ($adminData['role'] == 'Manajer') {
-            //     $role_redirect = 'manajer/dashboard.php';
-            //     $role_message = 'Redirecting to manajer dashboard...';
-            // }
-        } else {
-            $error_message = 'Password salah! Coba lagi.';
-        }
-    } else {
-        // Check in the pelanggan table
-        $customerQuery = mysqli_query($conn, "SELECT * FROM pelanggan WHERE namaPelanggan = '$username'");
-        $customerData = mysqli_fetch_assoc($customerQuery);
-
-        if ($customerQuery->num_rows > 0) {
-            // Customer login
-            if ($customerData && $password == $customerData['password']) {
-                $_SESSION['kodePelanggan'] = $customerData['kodePelanggan'];
-                $_SESSION['namaPelanggan'] = $customerData['namaPelanggan'];
-                $_SESSION['role'] = 'Pelanggan'; // Set a specific role for customers
-
-                $role_redirect = 'pelanggan/liat_barang.php'; // Redirect to customer dashboard
-                $role_message = 'Redirecting to your customer dashboard...';
+                // Redirect berdasarkan role
+                if ($userData['role'] == 'admin') {
+                    $role_redirect = '../web-sekolah/admin/index.php'; // Halaman admin
+                    $role_message = 'Redirecting to admin dashboard...';
+                } elseif ($userData['role'] == 'teacher') {
+                    $role_redirect = '../web-sekolah/guru/index.php'; // Halaman guru
+                    $role_message = 'Redirecting to teacher pages...';
+                } elseif ($userData['role'] == 'student') {
+                    $role_redirect = '../web-sekolah/siswa/index.php'; // Halaman siswa
+                    $role_message = 'Redirecting to student pages...';
+                } else {
+                    $error_message = 'Role tidak dikenali!';
+                }
             } else {
                 $error_message = 'Password salah! Coba lagi.';
             }
@@ -56,9 +39,7 @@ if (isset($_POST['submit'])) {
         }
     }
 }
-
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -66,8 +47,8 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/CSS/landing_page.css">
@@ -75,8 +56,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 </head>
 
 <body>
@@ -103,13 +82,11 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="password-footer d-flex justify-content-between">
                             <div class="form-check mt-2">
-                                <input type="checkbox" class="form-check-input" id="show-password"> <!-- checkbox liat password -->
-                                <label class="form-check-label" for="show-password">
-                                    Show Password
-                                </label>
+                                <input type="checkbox" class="form-check-input" id="show-password">
+                                <label class="form-check-label" for="show-password">Show Password</label>
                             </div>
                             <div class="mt-2">
-                                <a href="pelanggan/kelola_pelanggan.php" class="forget">Forgot Password</a> `
+                                <a href="forgot_password.php" class="forget">Forgot Password</a>
                             </div>
                         </div>
                     </div>
@@ -118,20 +95,16 @@ if (isset($_POST['submit'])) {
 
                 </form>
             </div>
-            <div class="col-5 contact rounded-end d-flex flex-column align-items-center justify-content-center text-center"><!-- flex column is arranges the children (image and heading) in a vertical column -->
+            <div class="col-5 contact rounded-end d-flex flex-column align-items-center justify-content-center text-center">
                 <img src="assets/img/login.svg" alt="" class="w-100 px-5">
                 <h5 class="mt-5 text-center">Login to get to our services</h5>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
             </div>
         </div>
     </div>
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/assets/JS/main.js"></script>
 
     <?php if (isset($role_redirect)) : ?>
         <script>
@@ -156,34 +129,18 @@ if (isset($_POST['submit'])) {
     <?php endif; ?>
 
     <script>
-        <?php if (isset($_GET['success'])): ?>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: 'Berhasil membuat akun, sekarang tinggal login saja',
-                confirmButtonText: 'Okeyyy'
-            });
-        <?php endif; ?>
-    </script>
-
-    <!-- Hide and Show Password -->
-    <script>
-        // Ambil elemen input password dan checkbox
+        // Show and hide password
         const passwordInput = document.getElementById('password');
         const showPasswordCheckbox = document.getElementById('show-password');
 
-        // Tambahkan event listener pada checkbox
         showPasswordCheckbox.addEventListener('change', function() {
             if (this.checked) {
-                // Ubah tipe input menjadi teks untuk menampilkan password
                 passwordInput.type = 'text';
             } else {
-                // Ubah tipe input kembali menjadi password untuk menyembunyikan password
                 passwordInput.type = 'password';
             }
         });
     </script>
-
 </body>
 
 </html>
