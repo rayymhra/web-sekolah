@@ -42,7 +42,7 @@
                 </ul>
                 <div class="d-flex mt-2 mt-lg-0">
                     <a href="../login.php" class="btn btn-outline-success me-2">Log In</a>
-                    <a href="#" class="btn btn-success">Sign Up</a>
+                    <a href="../register.php" class="btn btn-success">Sign Up</a>
                 </div>
             </div>
         </div>
