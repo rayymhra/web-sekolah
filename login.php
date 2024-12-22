@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['id'] = $userData['id'];
                 $_SESSION['username'] = $userData['username'];
                 $_SESSION['role'] = $userData['role']; // Menyimpan role pengguna
+                $_SESSION['photo'] = $userData['photo'];  // Menyimpan path foto profil
 
                 // Redirect berdasarkan role
                 if ($userData['role'] == 'admin') {
