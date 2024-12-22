@@ -16,6 +16,7 @@ Dashboard Sekolah adalah sebuah platform yang berkomitmen untuk meningkatkan kua
 - **Bahasa Pemrograman:** PHP (PHP Native)
 - **Database:** MySQL (utf8mb4_0900_ai_ci collation)
 - **Frontend:** CSS, JavaScript
+- **Framework:** Bootstrap 5.3
 - **Tools Pendukung:**
   - XAMPP & Laragon untuk server lokal // pilih salah satu
   - phpMyAdmin untuk manajemen database
