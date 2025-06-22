@@ -5,7 +5,7 @@ if(!defined('BASE_URL')) {
 }
 
 function base_url($path = '') {
-    return BASE_URL . ltrim($path = '/'); // Cara pakai : base_url('auth/login.php') 
+    return BASE_URL . ltrim($path, '/'); // Cara pakai : base_url('auth/login.php') 
 }
 
 ?>
