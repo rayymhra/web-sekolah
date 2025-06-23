@@ -1,5 +1,6 @@
 <?php
-include 'koneksi.php';
+require __DIR__ . '/../config/koneksi.php';
+require __DIR__ . '/../config/baseURL.php';
 
 // Proses form jika ada data yang dikirim
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Upload file
         $photo_path = null;
         if ($photo['error'] === UPLOAD_ERR_OK) {
-            $target_dir = "uploads/";
+            $target_dir = "../uploads/profiles/";
             $photo_name = uniqid() . "_" . basename($photo['name']);
             $target_file = $target_dir . $photo_name;
             if (move_uploaded_file($photo['tmp_name'], $target_file)) {
@@ -63,12 +64,20 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicon -->
+     <link rel="shortcut icon" href="<?= base_url('assets/img/bm3-header.png') ?>" type="image/x-icon">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+    </script>
     <!-- Bootstrap Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- SweetAlert -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- CSS -->
     <style>
         .register-container {
             margin-top: 5%;
@@ -108,11 +117,11 @@ $conn->close();
         <div class="row">
             <!-- Form Section -->
             <div class="col-7 register">
-                <img src="assets/img/bm3-logo.png" alt="" class="mb-3">
+                <img src="<?= base_url('assets/img/bm3-logo.png') ?>" alt="" class="mb-3">
                 <h4>Register Your Account</h4>
                 <p>Create an account to access our services.</p>
 
-                <form action="register.php" method="post" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="form-label">Username</label>
                         <div class="input-group">
@@ -158,16 +167,12 @@ $conn->close();
             </div>
             <!-- Info Section -->
             <div class="col-5 info rounded-end d-flex flex-column align-items-center justify-content-center text-center">
-                <img src="assets/img/register.svg" alt="" class="w-75 px-5">
+                <img src="<?= base_url('assets/img/login.svg') ?>" alt="" class="w-75 px-5">
                 <h5 class="mt-5">Join Our Platform</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap - SweetAlert JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <?php if (isset($direction)) : ?>
         <script>
