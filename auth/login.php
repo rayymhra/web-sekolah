@@ -1,6 +1,7 @@
 <?php
-include "koneksi.php";
 session_start();
+require __DIR__ . '/../config/koneksi.php';
+include __DIR__ . '/../config/baseURL.php';
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
@@ -21,13 +22,13 @@ if (isset($_POST['submit'])) {
 
                 // Redirect berdasarkan role
                 if ($userData['role'] == 'admin') {
-                    $role_redirect = '../web-sekolah/admin/index.php'; // Halaman admin
+                    $role_redirect = base_url('admin/index.php'); // Halaman admin
                     $role_message = 'Hi ' . $_SESSION['username'] . ', Redirecting to admin dashboard...';
                 } elseif ($userData['role'] == 'teacher') {
-                    $role_redirect = '../web-sekolah/guru/index.php'; // Halaman guru
+                    $role_redirect = base_url('pages/guru/index.php'); // Halaman guru
                     $role_message = 'Hi ' . $_SESSION['username'] . ', Redirecting to guru dashboard...';
                 } elseif ($userData['role'] == 'student') {
-                    $role_redirect = '../web-sekolah/siswa/index.php'; // Halaman siswa
+                    $role_redirect = base_url('pages/siswa/index.php'); // Halaman siswa
                     $role_message = 'Hi ' . $_SESSION['username'] . ', Redirecting to siswa dashboard...';
                 } else {
                     $error_message = 'Role tidak dikenali!';
@@ -49,12 +50,18 @@ if (isset($_POST['submit'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/CSS/landing_page.css">
-    <!-- sweetalert -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/img/bm3-header.png') ?>" type="image/x-icon">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+    </script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -96,15 +103,12 @@ if (isset($_POST['submit'])) {
                 </form>
             </div>
             <div class="col-5 contact rounded-end d-flex flex-column align-items-center justify-content-center text-center">
-                <img src="assets/img/login.svg" alt="" class="w-100 px-5">
+                <img src="<?= base_url('assets/img/login.svg') ?>" alt="" class="w-100 px-5">
                 <h5 class="mt-5 text-center">Login to get to our services</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php if (isset($role_redirect)) : ?>
         <script>
@@ -142,5 +146,4 @@ if (isset($_POST['submit'])) {
         });
     </script>
 </body>
-
 </html>
