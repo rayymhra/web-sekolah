@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Ahom&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* BUTTON */
+.btn-utama {
+    border: 1px solid #133e59;
+    padding: 6px 18px;
+    border-radius: 16px; 
+    background-color: #208780;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.3s;
+
+}
+
+.btn-utama:hover {
+    background-color: #133e59;
+    transition: all 0.3s;
+}
+
+
+/* Landing Page */
+/* Umum - Mengatur Margin dan Padding */
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+  /* margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%; */
+}
+
+/* Memastikan setiap bagian memiliki ruang */
+header,
+section,
+footer {
+  padding-bottom: 20px;
+  background-color: #208780;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+/* Untuk memastikan konten tidak berdekatan */
+.py-5 {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+/* Footer lebih jauh dengan jarak aman */
+footer {
+  margin-top: 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+header {
+    background-color: #208780;
+    padding: 60px 0;
+    text-align: center;
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    height: auto;
+}
+
+header h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+.feature-icon {
+    height: 60px;
+}
+
+.feature-card {
+    transition: transform 0.3s;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* padding-left:20px !important;
+    padding-right:20px !important;
+    padding-top: 15px;
+    padding-bottom: 15px; */
+    background-color: #fff;
+    /* margin-right: 10px; */
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #133e59;
+}
+
+footer p {
+    margin: 0;
+}
+
+.bg-light {
+    background-color: #f0f0f0 !important;
+}
+
+.text-dark {
+    color: #333 !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+/* New styles for spacing */
+section {
+    padding: 60px 0;
+    /* Add padding to each section */
+}
+
+h2 {
+    margin-bottom: 40px;
+    /* Add margin to headings */
+}
+
+/* Scrollbar */
+/* Untuk browser berbasis WebKit (Chrome, Safari, Edge, dll.) */
+::-webkit-scrollbar {
+    width: 8px; /* Lebar scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #e0e0e0; /* Warna latar belakang jalur scrollbar */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaaaaa; /* Warna tongkat scrollbar */
+    border-radius: 4px;
+    transition: all .5s ease ;
+}
+
+/* Untuk menghindari scrollbar terlalu mencolok dan tetap minimalis */
+::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+    transition: all .5s ease ;
+}
+
+
+/* Responsivitas tambahan */
+@media (max-width: 768px) {
+  header {
+    padding-top: 60px;
+  }
+}
+
+/* LOGIN */
+.login-container {
+    margin-top: 4rem;
+}
+
+.login {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  
+  .login img {
+    width: 130px;
+    margin-bottom: 3rem;
+  }
+  
+  .login h4 {
+    font-weight: 600;
+  }
+  
+  .contact {
+    background-color: #208780;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #ffffff;
+    box-shadow: 5px 5px 23px rgba(0, 0, 0, 0.2);
+
+  }
+  .forget {
+    font-size: 15px;
+    color: #208780;
+  }
