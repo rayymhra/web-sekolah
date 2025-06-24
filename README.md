@@ -23,7 +23,28 @@ Dashboard Sekolah adalah sebuah platform yang berkomitmen untuk meningkatkan kua
   - Git untuk version control
 
 ## Fitur Utama
-1. Coming Soon
+Aplikasi ini dirancang untuk mendukung sistem manajemen pembelajaran berbasis web dengan tiga jenis peran utama: Admin, Guru, dan Siswa. Masing-masing peran memiliki fitur yang disesuaikan untuk mendukung fungsionalitas dan alur kerja yang efisien.
+### Admin
+Admin memiliki akses penuh untuk mengelola data dan pengguna dalam sistem. Fitur-fitur yang tersedia untuk admin antara lain:
+- **Manajemen Pengguna**: membuat, membaca, memperbarui, dan menghapus data pengguna (CRUD)
+- **Manajemen Kelas**: membuat, membaca, memperbarui, dan menghapus data kelas
+- **Manajemen Guru**: membuat, membaca, memperbarui, dan menghapus data guru
+- **Dashboard Admin**: menampilkan ringkasan data dan aktivitas sistem secara keseluruhan
+
+### Guru
+Guru dapat mengelola kelas, memberikan tugas, serta menilai dan memantau perkembangan siswa. Fitur-fitur utama untuk guru:
+- **Dashboard Guru**: menampilkan informasi penting dan statistik terkait kelas
+- **Manajemen Kelas**: melihat informasi detail kelas dan daftar siswa
+- **Manajemen Tugas**: membuat, membaca, memperbarui, dan menghapus tugas
+- **Penilaian Tugas**: memberikan nilai dan masukan untuk tugas siswa
+- **Notifikasi**: mengirimkan pemberitahuan kepada siswa mengenai tugas baru, pengumuman, atau informasi lainnya
+
+### Siswa
+Siswa dapat melihat informasi pembelajaran mereka dan menerima pemberitahuan dari guru. Fitur-fitur utama untuk siswa:
+- **Dashboard Siswa**: menampilkan ringkasan aktivitas pembelajaran
+- **Daftar Tugas**: melihat dan mengakses tugas yang diberikan oleh guru
+- **Nilai**: melihat hasil penilaian tugas
+- **Notifikasi**: menerima pemberitahuan terbaru dari guru
 
 ## Persiapan Lingkungan
 Sebelum meng-clone dan menjalankan project ini, pastikan Anda memiliki:
